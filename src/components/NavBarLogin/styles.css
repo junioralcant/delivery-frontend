@@ -1,0 +1,14 @@
+div.navbar {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+div.navbar button {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button.btn-cart span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}

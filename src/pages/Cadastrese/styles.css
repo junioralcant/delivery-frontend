@@ -1,0 +1,20 @@
+div.body-cad {
+  background-color: black;
+  height: 180vh;
+  color: #fff;
+}
+div.container-title {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+label {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+button {
+  font-weight: bold;
+  font-size: 20px;
+}

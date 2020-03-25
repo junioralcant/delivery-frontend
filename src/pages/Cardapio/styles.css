@@ -1,0 +1,66 @@
+div.body {
+  background-color: black;
+}
+div.container-text {
+  margin-top: 60px;
+}
+span.title {
+  font-size: 60px;
+  color: #fff;
+}
+
+div.container-cat {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+div.produtos {
+  background-color: #fff;
+  border: 0;
+  width: 400px;
+  border-radius: 5px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+div.produtos div.descricao {
+  line-height: 23px;
+}
+
+div.produtos-desc {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.produtos-desc small {
+  text-align: center;
+  background-color: #616161;
+  padding: 4px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+}
+
+div.btn-add-carrinho {
+  display: flex;
+  justify-content: flex-end;
+}
+
+div.btn-add-carrinho button {
+  font-size: 20px !important;
+  font-weight: bold;
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #f44336;
+}
+
+div.btn-add-carrinho button:hover {
+  background-color: #f09892;
+  color: #000;
+}

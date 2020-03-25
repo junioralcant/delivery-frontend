@@ -1,0 +1,35 @@
+div.body {
+  background-color: black;
+  min-height: 100%;
+}
+div.container-text {
+  margin-top: 60px;
+}
+span.title {
+  font-size: 60px;
+  color: #fff;
+}
+
+div.container-cat {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+a.btn-cat {
+  background-color: #fff;
+  border: 0;
+  width: 400px;
+  border-radius: 5px;
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+a.btn-cat:hover {
+  background-color: rgb(216, 211, 211);
+}

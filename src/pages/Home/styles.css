@@ -1,0 +1,78 @@
+div.body {
+  background-color: black;
+}
+header {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../../essets/img/bannerpizza.jpg");
+  width: 100%;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+span.banner {
+  font-size: 120px;
+}
+
+a.button {
+  background-color: #000;
+  color: #fff;
+  padding: 20px 20px 20px 20px;
+  height: 60px;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+a.button:hover {
+  background-color: rgba(228, 235, 228, 0.933);
+  color: black;
+}
+
+div.text-banner {
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  header {
+    flex: 1 !important;
+    height: 500px;
+  }
+}
+
+div.funcionamento {
+  background-color: #000;
+  padding-bottom: 60px;
+}
+div.container-text-hr {
+  text-align: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+span.hr-funcionamento {
+  font-size: 60px;
+  color: #fff;
+  margin-top: 30px;
+}
+
+div.container-dados-hr {
+  background-color: #fff;
+  color: #000;
+  font-size: 50px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: #eeeeee solid 1px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+div.footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 15px;
+}
+
+small.text-footer {
+  font-size: 15px;
+  font-weight: bold;
+}

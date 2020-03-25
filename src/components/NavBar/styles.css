@@ -1,0 +1,42 @@
+div.navbar {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+div.navbar button {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+button.btn-cart span {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+div.modal {
+  color: #000;
+}
+
+div.modal-header {
+  background-color: #343a40;
+  color: #fff;
+}
+
+div.modal-header h4 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+div.modal-footer {
+  background-color: #343a40;
+}
+
+div.modal-footer button {
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a.cadastrese {
+  color: #000;
+}

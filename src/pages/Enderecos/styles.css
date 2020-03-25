@@ -1,0 +1,41 @@
+div.body {
+  background-color: #000;
+}
+
+div.container-title-endereco {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+div.container-title-endereco button {
+  margin-left: 10px;
+  margin-top: -25px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+div.container-endereco {
+  width: 400px;
+}
+
+div.endereco {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+  font-size: 25px;
+  margin-top: 20px;
+}
+
+div.remove-endereco button {
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+}
+
+div.remove-endereco button:hover {
+  background-color: #f09892;
+  color: #000;
+}
