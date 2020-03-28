@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
@@ -25,8 +25,8 @@ class SignIn extends Component {
       try {
         const response = await api.post("/sessions", { email, password });
         login(response.data.token);
-        this.props.history.push("/");
         document.getElementById("btn-modal").click();
+        this.props.history.push("/");
       } catch (err) {
         this.setState({
           error:
@@ -37,8 +37,8 @@ class SignIn extends Component {
   };
 
   handleCadastrese = () => {
-    this.props.history.push("/cadastrese");
     document.getElementById("btn-modal").click();
+    this.props.history.push("/cadastrese");
   };
 
   render() {
