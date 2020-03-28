@@ -10,6 +10,7 @@ export default function Footer() {
         href="https://www.instagram.com/jrmarques.dev/?hl=pt-br"
         className="name"
         target="_blank"
+        rel="noopener noreferrer"
       >
         Junior Marques
       </a>

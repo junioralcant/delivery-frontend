@@ -1,7 +1,7 @@
 import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 
-import NavBar from "../../components/NavBarLogin";
+import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 import "./styles.css";
 

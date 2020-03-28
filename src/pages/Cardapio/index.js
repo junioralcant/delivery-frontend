@@ -1,85 +1,81 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
+import api from "../../services/api";
+
+import * as CartActions from "../../store/modules/cart/actions";
 
 import "./styles.css";
 
-export default function Cardapio({ ...props }) {
+function Cardapio({ ...props }) {
+  const [produtos, setProdutos] = useState([]);
+  const { filtro } = props.match.params;
+
+  useEffect(() => {
+    async function loadprodutos() {
+      const response = await api.get(`/produtos`);
+
+      setProdutos(response.data.docs);
+    }
+
+    loadprodutos();
+  }, []);
+
+  function handlerAddProduct(product) {
+    const { dispatch } = props;
+
+    dispatch(CartActions.addToCart(product));
+  }
+
   return (
     <>
-      <div className="body">
+      <div className="body-cardapio">
         <NavBar {...props} />
+
         <div className="container" style={{ paddingBottom: 60 }}>
           <div
             className="col-md-12 container-text"
             style={{ textAlign: "center" }}
           >
-            <span className="title">Pizzas</span>
+            <span className="title">{filtro}</span>
           </div>
-          <div className="col-md-12 container-cat">
-            <div className="produtos">
-              <div className="produtos-desc">
-                <strong>Portuguesa</strong> <small>12:00 R$</small>
-              </div>
-              <div className="descricao">
-                <small>
-                  Prezunto, queijo, milhor, calabresa , queijo, milhor,
-                  calabresa
-                </small>
-              </div>
-              <div className="btn-add-carrinho">
-                <button>Adicionar ao carrinho</button>
-              </div>
-            </div>
-
-            <div className="produtos">
-              <div className="produtos-desc">
-                <strong>Baiana</strong> <small>12:00 R$</small>
-              </div>
-              <div className="descricao">
-                <small>
-                  Prezunto, queijo, milhor, calabresa , queijo, milhor,
-                  calabresa
-                </small>
-              </div>
-              <div className="btn-add-carrinho">
-                <button>Adicionar ao carrinho</button>
-              </div>
-            </div>
-
-            <div className="produtos">
-              <div className="produtos-desc">
-                <strong>Dois Queijos</strong> <small>12:00 R$</small>
-              </div>
-              <div className="descricao">
-                <small>
-                  Prezunto, queijo, milhor, calabresa , queijo, milhor,
-                  calabresa
-                </small>
-              </div>
-              <div className="btn-add-carrinho">
-                <button>Adicionar ao carrinho</button>
-              </div>
-            </div>
-            <div className="produtos">
-              <div className="produtos-desc">
-                <strong>Carne Seca</strong> <small>12:00 R$</small>
-              </div>
-              <div className="descricao">
-                <small>
-                  Prezunto, queijo, milhor, calabresa , queijo, milhor,
-                  calabresa
-                </small>
-              </div>
-              <div className="btn-add-carrinho">
-                <button>Adicionar ao carrinho</button>
-              </div>
-            </div>
+          {produtos.map(produto => {
+            if (produto.categoria.nome === filtro) {
+              return (
+                <div key={produto._id} className="col-md-12 container-cat">
+                  <div className="produtos">
+                    <div className="produtos-desc">
+                      <strong>{produto.nome}</strong>{" "}
+                      <small>{produto.preco} R$</small>
+                    </div>
+                    <div className="descricao">
+                      <small>{produto.descricao}</small>
+                    </div>
+                    <div className="btn-add-carrinho">
+                      <button onClick={() => handlerAddProduct(produto)}>
+                        Adicionar ao carrinho
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+          })}
+          <div
+            className="container-btn-voltar"
+            onClick={() => props.history.push("/categoria")}
+          >
+            <button className="btn-lg btn-primary btn-cart my-2 my-sm-0">
+              Voltar
+            </button>
           </div>
         </div>
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }
+
+export default connect()(Cardapio);

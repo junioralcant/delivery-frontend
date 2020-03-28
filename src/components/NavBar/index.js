@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
+import { connect } from "react-redux";
+
 import { IoIosCart } from "react-icons/io";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap";
 import "./styles.css";
 
-export default function NavBar({ history }) {
+function NavBar({ history, cartSize }) {
   return (
     <>
       <div className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -19,6 +22,19 @@ export default function NavBar({ history }) {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
+        </button>
+        <button
+          type="button"
+          data-toggle="collapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+          onClick={() => {
+            history.push("/carrinho");
+          }}
+          className=" navbar-toggler btn btn-primary btn-cart my-2 my-sm-0"
+          style={{ marginRight: 10 }}
+        >
+          <IoIosCart /> <span> {cartSize}</span>
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
           <Link className="navbar-brand" to="/">
@@ -34,6 +50,17 @@ export default function NavBar({ history }) {
             <li className="nav-item ">
               <Link className="nav-link" to="/categoria">
                 Cardápio<span className="sr-only">(current)</span>
+              </Link>
+            </li>
+
+            <li className="nav-item ">
+              <Link className="nav-link" to="/pedido">
+                Pedidos <span className="sr-only">(current)</span>
+              </Link>
+            </li>
+            <li className="nav-item ">
+              <Link className="nav-link" to="/endereco">
+                Endereços <span className="sr-only">(current)</span>
               </Link>
             </li>
 
@@ -57,43 +84,47 @@ export default function NavBar({ history }) {
             onClick={() => {
               history.push("/carrinho");
             }}
-            className="btn btn btn-primary btn-cart my-2 my-sm-0"
+            className="btn btn-primary btn-cart my-2 my-sm-0"
             style={{ marginRight: 10 }}
           >
-            <IoIosCart /> <span> 1</span>
+            <IoIosCart /> <span> {cartSize}</span>
           </button>
         </div>
       </div>
 
-      <div class="modal fade" id="myModal" role="dialog">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"></button>
-              <h4 class="modal-title">Login</h4>
+      <div className="modal fade" id="myModal" role="dialog">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <button
+                type="button"
+                className="close"
+                data-dismiss="modal"
+              ></button>
+              <h4 className="modal-title">Login</h4>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
               <form>
-                <div class="form-group">
+                <div className="form-group">
                   <label>Email:</label>
                   <input
                     type="email"
                     name="email"
                     placeholder="Email"
-                    class="form-control"
+                    className="form-control"
                   />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                   <label>Senha:</label>
                   <input
                     type="password"
                     name="password"
                     placeholder="Senha"
-                    class="form-control"
+                    className="form-control"
                   />
                 </div>
 
-                <button type="submit" class="btn-lg btn-primary">
+                <button type="submit" className="btn-lg btn-primary">
                   Logar
                 </button>
                 <br />
@@ -104,15 +135,16 @@ export default function NavBar({ history }) {
                     history.push("/cadastrese");
                     history.go(0);
                   }}
+                  to=""
                 >
                   Cadastre-se
                 </Link>
               </form>
             </div>
-            <div class="modal-footer">
+            <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-default"
+                className="btn btn-default"
                 data-dismiss="modal"
               >
                 Close
@@ -124,3 +156,7 @@ export default function NavBar({ history }) {
     </>
   );
 }
+
+export default connect(state => ({
+  cartSize: state.cart.length
+}))(NavBar);

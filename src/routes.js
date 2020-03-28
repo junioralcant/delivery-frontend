@@ -14,10 +14,10 @@ const Routes = () => (
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/categoria" component={Categoria} />
-      <Route path="/cardapio" component={Cardapio} />
+      <Route path="/cardapio/:filtro" component={Cardapio} />
       <Route path="/carrinho" component={Carrinho} />
       <Route path="/cadastrese" component={Cadastrese} />
-      <Route path="/pedido" component={Pedidos} />
+      <Route exact path="/pedido" component={Pedidos} />
       <Route path="/endereco" component={Enderecos} />
       <Route path="/cadendereco" component={CadEndereco} />
     </Switch>

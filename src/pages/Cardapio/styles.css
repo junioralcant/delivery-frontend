@@ -1,5 +1,6 @@
-div.body {
+div.body-cardapio {
   background-color: black;
+  height: 100vh;
 }
 div.container-text {
   margin-top: 60px;
@@ -29,6 +30,7 @@ div.produtos {
 
 div.produtos div.descricao {
   line-height: 23px;
+  margin-bottom: 5px;
 }
 
 div.produtos-desc {
@@ -63,4 +65,11 @@ div.btn-add-carrinho button {
 div.btn-add-carrinho button:hover {
   background-color: #f09892;
   color: #000;
+}
+
+div.container-btn-voltar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
 }
