@@ -1,6 +1,6 @@
-div.body {
+div.body-categoria {
   background-color: black;
-  min-height: 100%;
+  height: 100vh;
 }
 div.container-text {
   margin-top: 60px;
@@ -16,6 +16,7 @@ div.container-cat {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-bottom: -40px;
 }
 
 a.btn-cat {

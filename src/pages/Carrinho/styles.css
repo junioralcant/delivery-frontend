@@ -1,6 +1,6 @@
-div.body {
+div.body-carrinho {
   background-color: black;
-  height: 100%;
+  height: 100vh;
 }
 
 div.container-carrinho {
@@ -54,28 +54,6 @@ div.footer-desc {
   align-items: flex-end;
 }
 
-div.btn-add-carrinho button {
-  font-size: 40px;
-  border: 0;
-  color: #fff;
-  border-radius: 5px;
-  padding: 5px;
-  background-color: #f44336;
-  margin-left: 15px;
-}
-div.btn-add-carrinho p {
-  font-size: 30px;
-  color: #000;
-}
-
-div.btn-add-carrinho button:hover {
-  background-color: #f09892;
-  color: #000;
-}
-
-div.btn-remover-carrinho {
-}
-
 div.btn-remover-carrinho button {
   font-size: 16px;
   font-weight: bold;
@@ -111,4 +89,22 @@ div.finalizar button {
 div.finalizar button:hover {
   background-color: #f09892;
   color: #000;
+}
+
+input.input-number {
+  font-size: 20px;
+  width: 65px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+div.container-text-cart {
+  margin-top: 60px;
+  background-color: #f44336;
+  border-radius: 5px;
+  width: 400px;
+}
+span.title-cart {
+  font-size: 60px;
+  color: #fff;
 }

@@ -16,73 +16,85 @@ export default function Cadastrese({ ...props }) {
             <span className="title">Cadastre-se</span>
           </div>
           <form>
-            <div class="form-group">
+            <div className="form-group">
               <label>Nome:</label>
               <input
                 type="email"
                 name="email"
                 placeholder="Nome"
-                class="form-control"
+                className="form-control"
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Telefone:</label>
               <input
                 name="telefone"
                 placeholder="Telefone"
-                class="form-control"
+                className="form-control"
               />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label>Rua:</label>
-              <input name="rua" placeholder="Rua" class="form-control" />
+              <input name="rua" placeholder="Rua" className="form-control" />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label>Bairro:</label>
-              <input name="bairro" placeholder="Bairro" class="form-control" />
+              <input
+                name="bairro"
+                placeholder="Bairro"
+                className="form-control"
+              />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label>Número da residência:</label>
               <input
                 name="numeroCasa"
                 placeholder="Número da residência"
-                class="form-control"
+                className="form-control"
               />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label>Cidade:</label>
-              <input name="cidade" placeholder="Cidade" class="form-control" />
+              <input
+                name="cidade"
+                placeholder="Cidade"
+                className="form-control"
+              />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label>Estado:</label>
-              <input name="estado" placeholder="Estado" class="form-control" />
+              <input
+                name="estado"
+                placeholder="Estado"
+                className="form-control"
+              />
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label>Email:</label>
               <input
                 name="email"
                 type="email"
                 placeholder="Email"
-                class="form-control"
+                className="form-control"
                 id="email"
               />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Senha:</label>
               <input
                 name="password"
                 type="password"
                 placeholder="Senha"
-                class="form-control"
+                className="form-control"
               />
             </div>
-            <button type="submit" class="btn-lg btn-primary">
+            <button type="submit" className="btn-lg btn-primary">
               Salvar
             </button>
           </form>
