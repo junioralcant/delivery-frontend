@@ -1,0 +1,8 @@
+button.cadastrese {
+  background: none;
+  border: none;
+}
+
+button.cadastrese:hover {
+  color: rgb(66, 63, 63);
+}
