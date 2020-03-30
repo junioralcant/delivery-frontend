@@ -6,6 +6,9 @@ import * as CartActions from "../../store/modules/cart/actions";
 
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
+import SignIn from "../../components/SignIn";
+
+import { isAuthenticated } from "../../services/auth";
 
 import { formatPrice } from "../../util/formart";
 
@@ -72,10 +75,28 @@ function Carrinho({ ...props }) {
 
           {cartSize > 0 ? (
             <div className="finalizar">
-              <button>Finalizar Pedido</button>
-              <div>
-                <small>Total:</small> <strong>{total}</strong>
-              </div>
+              {isAuthenticated() ? (
+                <>
+                  <button
+                    onClick={() => props.history.push("/finalizarpedido")}
+                  >
+                    Finalizar Pedido
+                  </button>
+                  <div>
+                    <small>Total:</small> <strong>{total}</strong>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <button data-toggle="modal" data-target="#myModal">
+                    Faça login
+                  </button>
+                  <div>
+                    <small>Total:</small> <strong>{total}</strong>
+                    <SignIn {...props} />
+                  </div>
+                </>
+              )}
             </div>
           ) : (
             <div
