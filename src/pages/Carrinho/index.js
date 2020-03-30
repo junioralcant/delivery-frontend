@@ -78,7 +78,7 @@ function Carrinho({ ...props }) {
               {isAuthenticated() ? (
                 <>
                   <button
-                    onClick={() => props.history.push("/finalizarpedido")}
+                    onClick={() => props.history.push("/selecionarendereco")}
                   >
                     Finalizar Pedido
                   </button>

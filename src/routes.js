@@ -38,7 +38,7 @@ const Routes = () => (
       <PrivateRoute exact path="/pedido" component={Pedidos} />
       <PrivateRoute path="/endereco" component={Enderecos} />
       <PrivateRoute path="/cadendereco" component={CadEndereco} />
-      <PrivateRoute path="/finalizarpedido" component={SelecionarEndereco} />
+      <PrivateRoute path="/selecionarendereco" component={SelecionarEndereco} />
     </Switch>
   </BrowserRouter>
 );
