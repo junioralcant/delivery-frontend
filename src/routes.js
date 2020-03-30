@@ -11,6 +11,7 @@ import Cadastrese from "./pages/Cadastrese";
 import Pedidos from "./pages/Pedidos";
 import Enderecos from "./pages/Enderecos";
 import CadEndereco from "./pages/CadEndereco";
+import SelecionarEndereco from "./pages/SelecionarEndereco";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -37,6 +38,7 @@ const Routes = () => (
       <PrivateRoute exact path="/pedido" component={Pedidos} />
       <PrivateRoute path="/endereco" component={Enderecos} />
       <PrivateRoute path="/cadendereco" component={CadEndereco} />
+      <PrivateRoute path="/finalizarpedido" component={SelecionarEndereco} />
     </Switch>
   </BrowserRouter>
 );
