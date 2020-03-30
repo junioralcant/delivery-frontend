@@ -1,11 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
+
+import api from "../../services/api";
 import "./styles.css";
 
 export default function Enderecos({ ...props }) {
+  const [enderecos, setEnderecos] = useState([]);
+
+  useEffect(() => {
+    async function loadEnderecos() {
+      const response = await api.get("/enderecos");
+
+      setEnderecos(response.data);
+    }
+
+    loadEnderecos();
+  }, []);
+
+  async function deleteEndereco(id) {
+    await api.delete(`/enderecos/${id}`);
+    const response = await api.get("/enderecos");
+
+    setEnderecos(response.data);
+  }
+
+  console.log(enderecos);
+
   return (
     <>
       <div className="body" style={{ paddingBottom: "45%" }}>
@@ -20,36 +43,45 @@ export default function Enderecos({ ...props }) {
           </button>
         </div>
         <div className="container container-endereco">
-          <div className="endereco col-md-12">
-            <div className="dados-endereco">
-              <div>
-                <span>Rua: </span>
-                <strong>Rua lino machado</strong>
+          {enderecos.map(end => (
+            <div key={end._id} className="endereco col-md-12">
+              <div className="dados-endereco">
+                <div>
+                  <span>Rua: </span>
+                  <strong>{end.rua}</strong>
+                </div>
+                <div>
+                  <span>Número da residência: </span>
+                  <strong>{end.numeroCasa}</strong>
+                </div>
+                <div>
+                  <span>Bairro: </span>
+                  <strong>{end.bairro}</strong>
+                </div>
+                <div>
+                  <span>Cidade: </span>
+                  <strong>{end.cidade}</strong>
+                </div>
+                <div>
+                  <span>Estado: </span>
+                  <strong>{end.estado}</strong>
+                </div>
               </div>
-              <div>
-                <span>Número da residência: </span>
-                <strong>755A</strong>
-              </div>
-              <div>
-                <span>Bairro: </span>
-                <strong>Rua da Granja</strong>
-              </div>
-              <div>
-                <span>Cidade: </span>
-                <strong>Sao Mateus</strong>
-              </div>
-              <div>
-                <span>Estado: </span>
-                <strong>Maranhao</strong>
-              </div>
-            </div>
 
-            <div className="remove-endereco">
-              <button>
-                <MdDeleteForever />
-              </button>
+              <div className="remove-endereco">
+                <button
+                  onClick={() => {
+                    if (
+                      window.confirm("Deseja realmente deletar esse endereco ?")
+                    )
+                      deleteEndereco(end._id);
+                  }}
+                >
+                  <MdDeleteForever />
+                </button>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
       <Footer />
