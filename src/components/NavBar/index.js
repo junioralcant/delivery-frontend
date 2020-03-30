@@ -96,14 +96,17 @@ function NavBar({ ...props }) {
               Sair
             </button>
           ) : (
-            <button
-              className="btn btn btn-primary my-2 my-sm-0"
-              style={{ marginRight: 10 }}
-              data-toggle="modal"
-              data-target="#myModal"
-            >
-              Login
-            </button>
+            <>
+              <button
+                className="btn btn btn-primary my-2 my-sm-0"
+                style={{ marginRight: 10 }}
+                data-toggle="modal"
+                data-target="#myModal"
+              >
+                Login
+              </button>
+              <SignIn {...props} />
+            </>
           )}
 
           <button
@@ -117,8 +120,6 @@ function NavBar({ ...props }) {
           </button>
         </div>
       </div>
-
-      <SignIn {...props} />
     </>
   );
 }
