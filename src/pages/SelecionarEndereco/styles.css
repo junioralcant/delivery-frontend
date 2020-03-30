@@ -134,6 +134,27 @@ button.endereco:hover {
   background-color: #f09892;
 }
 
+div.container-endereco-button-cad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.container-endereco-button-cad button {
+  background-color: #f44336;
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+  font-size: 25px;
+  margin-top: 20px;
+  color: #fff;
+  border: none;
+}
+
+div.container-endereco-button-cad button:hover {
+  background-color: #f09892;
+  color: #000;
+}
+
 div.voltar {
   display: flex;
   align-items: center;
