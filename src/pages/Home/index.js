@@ -18,7 +18,11 @@ export default function Home({ ...props }) {
           </span>
 
           <p>
-            <a href="#menu" className="button">
+            <a
+              href="#menu"
+              onClick={() => props.history.push("/categoria")}
+              className="button"
+            >
               Faça seu pedido
             </a>
           </p>
