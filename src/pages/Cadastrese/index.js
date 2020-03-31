@@ -1,11 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 
+import api from "../../services/api";
+
 import "./styles.css";
 
 export default function Cadastrese({ ...props }) {
+  const [nome, setNome] = useState("");
+  const [telefone, setTelefone] = useState("");
+  const [rua, setRua] = useState("");
+  const [bairro, setBairro] = useState("");
+  const [numeroResid, setNumeroResid] = useState("");
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+
+  async function handlerSubmit(e) {
+    e.preventDefault();
+
+    await api.post("/users", {
+      nome: nome,
+      telefone: telefone,
+      email: email,
+      password: senha,
+      endereco: {
+        rua: rua,
+        bairro: bairro,
+        numeroCasa: numeroResid
+      }
+    });
+
+    setNome("");
+    setTelefone("");
+    setEmail("");
+    setSenha("");
+    setRua("");
+    setBairro("");
+    setNumeroResid("");
+    alert("Cadastro efetuado com sucesso! Agora faça login para continuar.");
+  }
+
   return (
     <>
       <div className="body-cad">
@@ -15,14 +50,15 @@ export default function Cadastrese({ ...props }) {
           <div className="container-title col-md-12">
             <span className="title">Cadastre-se</span>
           </div>
-          <form>
+          <form onSubmit={handlerSubmit}>
             <div className="form-group">
               <label>Nome:</label>
               <input
-                type="email"
                 name="email"
                 placeholder="Nome"
                 className="form-control"
+                onChange={e => setNome(e.target.value)}
+                value={nome}
               />
             </div>
             <div className="form-group">
@@ -31,12 +67,20 @@ export default function Cadastrese({ ...props }) {
                 name="telefone"
                 placeholder="Telefone"
                 className="form-control"
+                onChange={e => setTelefone(e.target.value)}
+                value={telefone}
               />
             </div>
 
             <div className="form-group">
               <label>Rua:</label>
-              <input name="rua" placeholder="Rua" className="form-control" />
+              <input
+                name="rua"
+                placeholder="Rua"
+                className="form-control"
+                onChange={e => setRua(e.target.value)}
+                value={rua}
+              />
             </div>
 
             <div className="form-group">
@@ -45,6 +89,8 @@ export default function Cadastrese({ ...props }) {
                 name="bairro"
                 placeholder="Bairro"
                 className="form-control"
+                onChange={e => setBairro(e.target.value)}
+                value={bairro}
               />
             </div>
 
@@ -54,24 +100,8 @@ export default function Cadastrese({ ...props }) {
                 name="numeroCasa"
                 placeholder="Número da residência"
                 className="form-control"
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Cidade:</label>
-              <input
-                name="cidade"
-                placeholder="Cidade"
-                className="form-control"
-              />
-            </div>
-
-            <div className="form-group">
-              <label>Estado:</label>
-              <input
-                name="estado"
-                placeholder="Estado"
-                className="form-control"
+                onChange={e => setNumeroResid(e.target.value)}
+                value={numeroResid}
               />
             </div>
 
@@ -82,9 +112,11 @@ export default function Cadastrese({ ...props }) {
                 type="email"
                 placeholder="Email"
                 className="form-control"
-                id="email"
+                onChange={e => setEmail(e.target.value)}
+                value={email}
               />
             </div>
+
             <div className="form-group">
               <label>Senha:</label>
               <input
@@ -92,6 +124,8 @@ export default function Cadastrese({ ...props }) {
                 type="password"
                 placeholder="Senha"
                 className="form-control"
+                onChange={e => setSenha(e.target.value)}
+                value={senha}
               />
             </div>
             <button type="submit" className="btn-lg btn-primary">
