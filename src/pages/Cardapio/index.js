@@ -11,6 +11,8 @@ import "./styles.css";
 
 function Cardapio({ ...props }) {
   const [produtos, setProdutos] = useState([]);
+  const [add, setAdd] = useState(false);
+
   const { filtro } = props.match.params;
 
   useEffect(() => {
@@ -24,15 +26,23 @@ function Cardapio({ ...props }) {
   }, []);
 
   function handlerAddProduct(product) {
+    setAdd(true);
     const { dispatch } = props;
 
     dispatch(CartActions.addToCart(product));
+    setTimeout(() => setAdd(false), 1000);
   }
 
   return (
     <>
       <div className="body-cardapio">
         <NavBar {...props} />
+
+        {!add ? null : (
+          <div className="container-add-carrinho">
+            <small className="alert-add-carrinho">Adicionado ao carrinho</small>
+          </div>
+        )}
 
         <div className="container" style={{ paddingBottom: 60 }}>
           <div

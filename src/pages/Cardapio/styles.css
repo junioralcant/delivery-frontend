@@ -2,6 +2,31 @@ div.body-cardapio {
   background-color: black;
   height: 100vh;
 }
+
+div.container-add-carrinho {
+  display: flex;
+  position: fixed !important;
+  justify-content: flex-end;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+small.alert-add-carrinho {
+  transition: all 0.2s;
+  margin-top: 75px;
+  margin-right: 15px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #f09892;
+  padding: 5px;
+  height: 40px;
+  border-radius: 2px;
+}
 div.container-text {
   margin-top: 60px;
 }
