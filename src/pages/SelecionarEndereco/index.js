@@ -34,6 +34,7 @@ function SelecioneEndereco({ ...props }) {
 
     alert("PEDIDO REALIZADO COM SUCESSO!");
     history.push("/pedido");
+    history.go(0);
   }
 
   return (
