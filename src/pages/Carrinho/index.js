@@ -28,6 +28,8 @@ function Carrinho({ ...props }) {
   return (
     <>
       <div className="body-carrinho">
+        <SignIn {...props} />
+
         <NavBar {...props} />
         <div
           className="container col-md-12 container-carrinho"
@@ -93,7 +95,6 @@ function Carrinho({ ...props }) {
                   </button>
                   <div>
                     <small>Total:</small> <strong>{total}</strong>
-                    <SignIn {...props} />
                   </div>
                 </>
               )}

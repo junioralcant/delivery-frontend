@@ -5,6 +5,7 @@ import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 import api from "../../services/api";
 
+import { formatPrice } from "../../util/formart";
 import * as CartActions from "../../store/modules/cart/actions";
 
 import "./styles.css";
@@ -58,7 +59,7 @@ function Cardapio({ ...props }) {
                   <div className="produtos">
                     <div className="produtos-desc">
                       <strong>{produto.nome}</strong>{" "}
-                      <small>{produto.preco} R$</small>
+                      <small>{formatPrice(produto.preco)}</small>
                     </div>
                     <div className="descricao">
                       <small>{produto.descricao}</small>
