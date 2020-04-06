@@ -53,7 +53,10 @@ function Cardapio({ ...props }) {
             <span className="title">{filtro}</span>
           </div>
           {produtos.map(produto => {
-            if (produto.categoria.nome === filtro) {
+            if (
+              produto.categoria.nome === filtro &&
+              produto.disponivel === true
+            ) {
               return (
                 <div key={produto._id} className="col-md-12 container-cat">
                   <div className="produtos">
