@@ -87,7 +87,6 @@ function Cardapio({ ...props }) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

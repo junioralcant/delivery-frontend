@@ -39,7 +39,7 @@ function SelecioneEndereco({ ...props }) {
 
   return (
     <>
-      <div className="body-carrinho">
+      <div className="body-select-endereco">
         <NavBar {...props} />
         <div
           className="container col-md-12 container-carrinho"
@@ -145,7 +145,6 @@ function SelecioneEndereco({ ...props }) {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

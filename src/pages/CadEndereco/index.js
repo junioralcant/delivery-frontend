@@ -84,7 +84,6 @@ export default function Cadastrese({ ...props }) {
           </form>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

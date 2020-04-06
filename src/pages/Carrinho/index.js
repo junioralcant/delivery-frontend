@@ -109,7 +109,6 @@ function Carrinho({ ...props }) {
           )}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

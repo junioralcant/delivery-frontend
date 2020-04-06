@@ -79,7 +79,6 @@ export default function Pedidos({ ...props }) {
           );
         })}
       </div>
-      <Footer />
     </>
   );
 }

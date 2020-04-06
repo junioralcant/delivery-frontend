@@ -41,7 +41,6 @@ export default function Categoria({ ...props }) {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 }
