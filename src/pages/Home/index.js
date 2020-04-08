@@ -14,7 +14,7 @@ export default function Home({ ...props }) {
           <span className="banner">
             PIZZARIA
             <br />
-            Delivary
+            Delivery
           </span>
 
           <p>
