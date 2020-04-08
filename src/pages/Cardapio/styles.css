@@ -2,6 +2,12 @@ div.body-cardapio {
   background-color: black;
 }
 
+div.loading {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+}
+
 div.container-add-carrinho {
   display: flex;
   position: fixed !important;

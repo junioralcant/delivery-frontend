@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
 
 import api from "../../services/api";
 
@@ -15,9 +15,12 @@ export default function Cadastrese({ ...props }) {
   const [numeroResid, setNumeroResid] = useState("");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handlerSubmit(e) {
     e.preventDefault();
+
+    setLoading(true);
 
     await api.post("/users", {
       nome: nome,
@@ -30,6 +33,8 @@ export default function Cadastrese({ ...props }) {
         numeroCasa: numeroResid
       }
     });
+
+    setLoading(false);
 
     setNome("");
     setTelefone("");
@@ -128,13 +133,17 @@ export default function Cadastrese({ ...props }) {
                 value={senha}
               />
             </div>
-            <button type="submit" className="btn-lg btn-primary">
-              Salvar
-            </button>
+
+            {loading ? (
+              <Loader />
+            ) : (
+              <button type="submit" className="btn-lg btn-primary">
+                Salvar
+              </button>
+            )}
           </form>
         </div>
       </div>
-      <Footer />
     </>
   );
 }

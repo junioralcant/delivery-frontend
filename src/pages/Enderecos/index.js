@@ -2,21 +2,23 @@ import React, { useEffect, useState } from "react";
 import { MdDeleteForever } from "react-icons/md";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
 
 import api from "../../services/api";
 import "./styles.css";
 
 export default function Enderecos({ ...props }) {
   const [enderecos, setEnderecos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadEnderecos() {
+      setLoading(true);
       const response = await api.get("/enderecos");
 
+      setLoading(false);
       setEnderecos(response.data);
     }
-
     loadEnderecos();
   }, []);
 
@@ -26,8 +28,6 @@ export default function Enderecos({ ...props }) {
 
     setEnderecos(response.data);
   }
-
-  console.log(enderecos);
 
   return (
     <>
@@ -43,6 +43,12 @@ export default function Enderecos({ ...props }) {
           </button>
         </div>
         <div className="container container-endereco">
+          {loading && (
+            <div className="loader-end">
+              <Loader />
+            </div>
+          )}
+
           {enderecos.map(end => (
             <div key={end._id} className="endereco col-md-12">
               <div className="dados-endereco">
@@ -84,7 +90,6 @@ export default function Enderecos({ ...props }) {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 }

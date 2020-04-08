@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import * as CartActions from "../../store/modules/cart/actions";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
 import SignIn from "../../components/SignIn";
 
 import { isAuthenticated } from "../../services/auth";

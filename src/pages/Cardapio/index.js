@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
+
 import api from "../../services/api";
 
 import { formatPrice } from "../../util/formart";
@@ -12,14 +13,18 @@ import "./styles.css";
 
 function Cardapio({ ...props }) {
   const [produtos, setProdutos] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [add, setAdd] = useState(false);
 
   const { filtro } = props.match.params;
 
   useEffect(() => {
     async function loadprodutos() {
+      setLoading(true);
+
       const response = await api.get(`/produtos`);
 
+      setLoading(false);
       setProdutos(response.data.docs);
     }
 
@@ -52,6 +57,13 @@ function Cardapio({ ...props }) {
           >
             <span className="title">{filtro}</span>
           </div>
+
+          {loading && (
+            <div className="container-cat">
+              <Loader />
+            </div>
+          )}
+
           {produtos.map(produto => {
             if (
               produto.categoria.nome === filtro &&

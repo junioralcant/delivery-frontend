@@ -119,6 +119,12 @@ div.container-endereco {
   width: 400px;
 }
 
+div.loader-select-end {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 button.endereco {
   background-color: #fff;
   text-align: start;

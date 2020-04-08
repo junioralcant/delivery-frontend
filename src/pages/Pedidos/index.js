@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { parseFromTimeZone, formatToTimeZone } from "date-fns-timezone";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
 
 import { formatPrice } from "../../util/formart";
 
@@ -12,18 +12,19 @@ import "./styles.css";
 
 export default function Pedidos({ ...props }) {
   const [pedidos, setPedidos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function loadProduto() {
+      setLoading(true);
       const response = await api.get("/pedidos");
 
+      setLoading(false);
       setPedidos(response.data);
     }
 
     loadProduto();
   }, []);
-
-  console.log(pedidos);
 
   return (
     <>
@@ -32,6 +33,12 @@ export default function Pedidos({ ...props }) {
         <div className="container-title-pedido col-md-12">
           <span className="title">Pedidos</span>
         </div>
+
+        {loading && (
+          <div className="loader-pedido">
+            <Loader />
+          </div>
+        )}
 
         {pedidos.map(pedido => {
           const data = parseFromTimeZone(pedido.createdAt, {

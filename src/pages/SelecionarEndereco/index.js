@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
 
 import { formatPrice } from "../../util/formart";
 import api from "../../services/api";
@@ -11,13 +11,16 @@ import "./styles.css";
 
 function SelecioneEndereco({ ...props }) {
   const [enderecos, setEnderecos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const { cart, total, history } = props;
 
   useEffect(() => {
     async function loadEndereco() {
+      setLoading(true);
       const response = await api("/enderecos");
 
+      setLoading(false);
       setEnderecos(response.data);
     }
 
@@ -86,6 +89,11 @@ function SelecioneEndereco({ ...props }) {
                 Selecione um endereço para entrega
               </span>
             </div>
+            {loading && (
+              <div className="loader-select-end">
+                <Loader />
+              </div>
+            )}
 
             {enderecos.length > 0 ? (
               <div className="container container-endereco">

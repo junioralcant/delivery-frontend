@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import NavBar from "../../components/NavBar";
-import Footer from "../../components/Footer";
+import Loader from "../../components/Loader";
 
 import api from "../../services/api";
 
@@ -11,10 +11,11 @@ export default function Cadastrese({ ...props }) {
   const [rua, setRua] = useState("");
   const [numero, setNumero] = useState("");
   const [bairro, setBairro] = useState("");
+  const [loading, setLoading] = useState(false);
 
   async function handlerSubmit(e) {
     e.preventDefault();
-
+    setLoading(true);
     await api.post("/enderecos", {
       endereco: {
         rua: rua,
@@ -23,6 +24,7 @@ export default function Cadastrese({ ...props }) {
       }
     });
 
+    setLoading(false);
     setRua("");
     setNumero("");
     setBairro("");
@@ -70,17 +72,23 @@ export default function Cadastrese({ ...props }) {
               />
             </div>
 
-            <button type="submit" className="btn-lg btn-primary">
-              Salvar
-            </button>
-            <button
-              type="submit"
-              className="btn-lg btn-danger"
-              style={{ marginLeft: 10 }}
-              onClick={() => props.history.push("/endereco")}
-            >
-              Cancelar
-            </button>
+            {loading ? (
+              <Loader />
+            ) : (
+              <>
+                <button type="submit" className="btn-lg btn-primary">
+                  Salvar
+                </button>
+                <button
+                  type="submit"
+                  className="btn-lg btn-danger"
+                  style={{ marginLeft: 10 }}
+                  onClick={() => props.history.push("/endereco")}
+                >
+                  Cancelar
+                </button>
+              </>
+            )}
           </form>
         </div>
       </div>

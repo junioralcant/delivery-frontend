@@ -7,13 +7,16 @@ import "bootstrap/dist/js/bootstrap";
 import api from "../../services/api";
 import { login } from "../../services/auth";
 
+import Loader from "../Loader";
+
 import "./styles.css";
 
 class SignIn extends Component {
   state = {
     email: "",
     password: "",
-    error: ""
+    error: "",
+    loading: false
   };
 
   handleSignIn = async e => {
@@ -23,8 +26,10 @@ class SignIn extends Component {
       this.setState({ error: "Preencha e-mail e senha para continuar!" });
     } else {
       try {
+        this.setState({ loading: true });
         const response = await api.post("/sessions", { email, password });
         login(response.data.token);
+        this.setState({ loading: false });
         document.getElementById("btn-modal").click();
         this.props.history.push("/");
       } catch (err) {
@@ -85,9 +90,14 @@ class SignIn extends Component {
                   />
                 </div>
 
-                <button type="submit" className="btn-lg btn-primary">
-                  Logar
-                </button>
+                {this.state.loading ? (
+                  <Loader />
+                ) : (
+                  <button type="submit" className="btn-lg btn-primary">
+                    Logar
+                  </button>
+                )}
+
                 <br />
                 <br />
                 <button className="cadastrese" onClick={this.handleCadastrese}>
