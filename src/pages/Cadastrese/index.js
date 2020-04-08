@@ -16,34 +16,55 @@ export default function Cadastrese({ ...props }) {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   async function handlerSubmit(e) {
     e.preventDefault();
 
-    setLoading(true);
+    try {
+      if (
+        !nome ||
+        !telefone ||
+        !rua ||
+        !bairro ||
+        !numeroResid ||
+        !senha ||
+        !email
+      ) {
+        setError("Preencha todos os campos para continuar.");
+      } else {
+        setLoading(true);
 
-    await api.post("/users", {
-      nome: nome,
-      telefone: telefone,
-      email: email,
-      password: senha,
-      endereco: {
-        rua: rua,
-        bairro: bairro,
-        numeroCasa: numeroResid
+        await api.post("/users", {
+          nome: nome,
+          telefone: telefone,
+          email: email,
+          password: senha,
+          endereco: {
+            rua: rua,
+            bairro: bairro,
+            numeroCasa: numeroResid
+          }
+        });
+
+        setLoading(false);
+
+        setNome("");
+        setTelefone("");
+        setEmail("");
+        setSenha("");
+        setRua("");
+        setBairro("");
+        setNumeroResid("");
+        alert(
+          "Cadastro efetuado com sucesso! Agora faça login para continuar."
+        );
+        props.history.push("/");
       }
-    });
-
-    setLoading(false);
-
-    setNome("");
-    setTelefone("");
-    setEmail("");
-    setSenha("");
-    setRua("");
-    setBairro("");
-    setNumeroResid("");
-    alert("Cadastro efetuado com sucesso! Agora faça login para continuar.");
+    } catch (error) {
+      setError(error.response.data.error);
+      setLoading(false);
+    }
   }
 
   return (
@@ -56,6 +77,16 @@ export default function Cadastrese({ ...props }) {
             <span className="title">Cadastre-se</span>
           </div>
           <form onSubmit={handlerSubmit}>
+            <div className="form-group">
+              {error && (
+                <p
+                  className="p-1  mb-2 bg-danger text-white"
+                  style={{ fontSize: 25, fontWeight: "bold" }}
+                >
+                  {error}
+                </p>
+              )}
+            </div>
             <div className="form-group">
               <label>Nome:</label>
               <input
