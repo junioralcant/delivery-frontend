@@ -37,6 +37,7 @@ class SignIn extends Component {
           error:
             "Houve um problema com o login, verifique suas credenciais. T.T"
         });
+        this.setState({ loading: false });
       }
     }
   };
