@@ -28,7 +28,7 @@ export default function Categoria({ ...props }) {
   return (
     <>
       <NavBar {...props} />
-      <div className="body-categoria container-fluid col-md-12">
+      <div className="body-categoria container col-md-12">
         <div className="container col-md-12" style={{ paddingBottom: "31.5%" }}>
           <div
             className="col-md-12 container-text"
