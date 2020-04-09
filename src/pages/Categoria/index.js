@@ -38,13 +38,12 @@ export default function Categoria({ ...props }) {
           </div>
           {categorias.map(categoria => (
             <div key={categoria._id} className="col-md-12 container-cat">
-              {loading && <Loader />}
-              <Link
-                className="btn-cat col-md-12"
-                to={`/cardapio/${categoria.nome}`}
-              >
-                {categoria.nome}
-              </Link>
+              <div className="row">
+                {loading && <Loader />}
+                <Link className="btn-cat" to={`/cardapio/${categoria.nome}`}>
+                  {categoria.nome}
+                </Link>
+              </div>
             </div>
           ))}
         </div>
