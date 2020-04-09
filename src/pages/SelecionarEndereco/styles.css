@@ -23,7 +23,7 @@ div.produtos {
   width: 300px !important;
   border-radius: 5px;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 10px;
 }
 
@@ -131,7 +131,7 @@ button.endereco {
   padding: 5px 5px 5px 5px;
   border-radius: 5px;
   font-size: 25px;
-  margin-top: 20px;
+  margin-top: 10px;
   border: none;
 }
 
