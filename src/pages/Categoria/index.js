@@ -26,26 +26,25 @@ export default function Categoria({ ...props }) {
   }, []);
 
   return (
-    <>
+    <div className="body-categoria container col-md-12">
       <NavBar {...props} />
-      <div className="body-categoria container col-md-12">
-        <div className="container col-md-12" style={{ paddingBottom: "31.5%" }}>
-          <div
-            className="col-md-12 container-text"
-            style={{ textAlign: "center" }}
-          >
-            <span className="title">Categorias</span>
-          </div>
-          {categorias.map(categoria => (
-            <div key={categoria._id} className="col-md-12 container-cat">
-              {loading && <Loader />}
-              <Link className="btn-cat" to={`/cardapio/${categoria.nome}`}>
-                {categoria.nome}
-              </Link>
-            </div>
-          ))}
+
+      <div className="container col-md-12" style={{ paddingBottom: "31.5%" }}>
+        <div
+          className="col-md-12 container-text"
+          style={{ textAlign: "center" }}
+        >
+          <span className="title">Categorias</span>
         </div>
+        {categorias.map(categoria => (
+          <div key={categoria._id} className="col-md-12 container-cat">
+            {loading && <Loader />}
+            <Link className="btn-cat" to={`/cardapio/${categoria.nome}`}>
+              {categoria.nome}
+            </Link>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 }

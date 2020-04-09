@@ -21,7 +21,7 @@ div.container-cat {
 a.btn-cat {
   background-color: #fff;
   border: 0;
-  max-width: 400px;
+  width: 400px;
   border-radius: 5px;
   font-size: 60px;
   margin-bottom: 20px;
