@@ -23,10 +23,6 @@ div.produtos {
   padding: 10px;
 }
 
-div.produtos div.descricao {
-  line-height: 23px;
-}
-
 div.produtos-desc {
   display: flex;
   justify-content: space-between;

@@ -41,7 +41,7 @@ span.title {
 }
 
 div.container-cardapio {
-  margin-top: 40px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +54,7 @@ div.produtos-cardapio {
   width: 300px;
   border-radius: 5px;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   padding: 10px;
 }
 
