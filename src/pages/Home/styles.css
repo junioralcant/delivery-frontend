@@ -66,6 +66,12 @@ div.container-dados-hr {
   border-radius: 5px;
 }
 
+@media (max-width: 980px) {
+  div.container-dados-hr {
+    font-size: 38px;
+  }
+}
+
 div.footer {
   background-color: #343a40;
   color: #fff;

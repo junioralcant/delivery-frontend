@@ -22,7 +22,7 @@ div.container-pedido {
   padding-top: 10px;
   padding-bottom: 20px;
   background-color: #f44336d3;
-  max-width: 430px;
+  max-width: 330px;
   border-radius: 5px;
   margin-top: 20px;
 }
@@ -33,7 +33,7 @@ div.data-pedido {
   background-color: none;
   font-size: 30px;
   padding: 10px;
-  width: 400px;
+  width: 300px;
   border-radius: 5px;
 }
 
@@ -49,7 +49,7 @@ div.pedido {
   padding-bottom: 20px;
   background-color: #fff !important;
   border: 0;
-  width: 400px;
+  width: 300px;
   border-radius: 5px;
   font-size: 30px;
   margin-bottom: 10px;
@@ -68,6 +68,6 @@ div.total-pedido {
   background-color: #fff;
   font-size: 30px;
   padding: 10px;
-  width: 400px;
+  width: 300px;
   border-radius: 5px;
 }

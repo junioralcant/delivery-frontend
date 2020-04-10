@@ -36,7 +36,7 @@ function Carrinho({ ...props }) {
         >
           {cart.map(produto => {
             return (
-              <div key={produto._id} className="produtos">
+              <div key={produto._id} className="produtos-carrinho">
                 <div className="produtos-desc">
                   <strong>{produto.nome}</strong>{" "}
                   <small>{produto.preco} R$</small>

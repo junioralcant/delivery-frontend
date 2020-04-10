@@ -27,8 +27,8 @@ export default function Categoria({ ...props }) {
 
   return (
     <>
-      <div className="body-categoria">
-        <NavBar {...props} />
+      <NavBar {...props} />
+      <div className="body-categoria container col-md-12">
         <div className="container col-md-12" style={{ paddingBottom: "31.5%" }}>
           <div
             className="col-md-12 container-text"
@@ -38,10 +38,12 @@ export default function Categoria({ ...props }) {
           </div>
           {categorias.map(categoria => (
             <div key={categoria._id} className="col-md-12 container-cat">
-              {loading && <Loader />}
-              <Link className="btn-cat" to={`/cardapio/${categoria.nome}`}>
-                {categoria.nome}
-              </Link>
+              <div className="row">
+                {loading && <Loader />}
+                <Link className="btn-cat" to={`/cardapio/${categoria.nome}`}>
+                  {categoria.nome}
+                </Link>
+              </div>
             </div>
           ))}
         </div>

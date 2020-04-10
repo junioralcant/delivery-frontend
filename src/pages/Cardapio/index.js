@@ -70,8 +70,8 @@ function Cardapio({ ...props }) {
               produto.disponivel === true
             ) {
               return (
-                <div key={produto._id} className="col-md-12 container-cat">
-                  <div className="produtos">
+                <div key={produto._id} className="col-md-12 container-cardapio">
+                  <div className="produtos-cardapio">
                     <div className="produtos-desc">
                       <strong>{produto.nome}</strong>{" "}
                       <small>{formatPrice(produto.preco)}</small>

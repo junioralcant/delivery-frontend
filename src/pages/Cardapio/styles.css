@@ -40,21 +40,21 @@ span.title {
   color: #fff;
 }
 
-div.container-cat {
-  margin-top: 40px;
+div.container-cardapio {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-div.produtos {
+div.produtos-cardapio {
   background-color: #fff;
   border: 0;
-  width: 400px;
+  width: 300px;
   border-radius: 5px;
   font-size: 30px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   padding: 10px;
 }
 
