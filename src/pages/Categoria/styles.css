@@ -1,12 +1,11 @@
 div.body-categoria {
-  background-color: black;
 }
 div.container-text {
   margin-top: 60px;
 }
 span.title {
   font-size: 60px;
-  color: #fff;
+  color: #000 !important;
 }
 
 div.container-cat {
@@ -19,7 +18,7 @@ div.container-cat {
 }
 
 a.btn-cat {
-  background-color: #fff;
+  background-color: #fb6b90;
   border: 0;
   width: 300px;
   border-radius: 5px;
@@ -31,5 +30,5 @@ a.btn-cat {
 }
 
 a.btn-cat:hover {
-  background-color: rgb(216, 211, 211);
+  background: #fb8da0;
 }

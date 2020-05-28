@@ -1,6 +1,7 @@
 div.navbar {
   font-weight: bold;
   font-size: 25px;
+  background: #fb4570 !important;
 }
 
 div.navbar button {
@@ -8,9 +9,16 @@ div.navbar button {
   font-size: 20px;
 }
 
-button.btn-cart span {
+button.btn-carts span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
+  background: none !important;
+  border: none !important;
+}
+
+button.btn-danger {
+  background: red;
+  border: none;
 }
 
 div.modal {
@@ -18,8 +26,8 @@ div.modal {
 }
 
 div.modal-header {
-  background-color: #343a40;
-  color: #fff;
+  background-color: #fb4570;
+  color: #000;
 }
 
 div.modal-header h4 {
@@ -28,15 +36,24 @@ div.modal-header h4 {
 }
 
 div.modal-footer {
-  background-color: #343a40;
+  background-color: #fb4570;
 }
 
 div.modal-footer button {
-  color: #fff;
+  color: #000;
   font-size: 20px;
   font-weight: bold;
 }
 
 a.cadastrese {
   color: #000;
+}
+
+button.btn-primary {
+  background: #b21368;
+  border: none;
+}
+
+button.btn-primary:hover {
+  background: #d67ba8;
 }

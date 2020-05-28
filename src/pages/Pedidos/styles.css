@@ -1,5 +1,5 @@
 div.body {
-  background-color: #000;
+  background: none !important;
 }
 
 div.container-title-pedido {
@@ -21,7 +21,7 @@ div.container-pedido {
   flex-direction: column;
   padding-top: 10px;
   padding-bottom: 20px;
-  background-color: #f44336d3;
+  background-color: #b21368;
   max-width: 330px;
   border-radius: 5px;
   margin-top: 20px;

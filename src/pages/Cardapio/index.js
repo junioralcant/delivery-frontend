@@ -64,7 +64,7 @@ function Cardapio({ ...props }) {
             </div>
           )}
 
-          {produtos.map(produto => {
+          {produtos.map((produto) => {
             if (
               produto.categoria.nome === filtro &&
               produto.disponivel === true
@@ -93,9 +93,7 @@ function Cardapio({ ...props }) {
             className="container-btn-voltar"
             onClick={() => props.history.push("/categoria")}
           >
-            <button className="btn-lg btn-primary btn-cart my-2 my-sm-0">
-              Voltar
-            </button>
+            <button className="btn-lg   btn-voltar my-2 my-sm-0">Voltar</button>
           </div>
         </div>
       </div>

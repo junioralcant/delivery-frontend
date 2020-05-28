@@ -1,5 +1,4 @@
 div.body-cardapio {
-  background-color: black;
 }
 
 div.loading {
@@ -27,7 +26,7 @@ small.alert-add-carrinho {
   color: #000;
   font-size: 20px;
   font-weight: bold;
-  background-color: #f09892;
+  background-color: #d67ba8;
   padding: 5px;
   height: 40px;
   border-radius: 2px;
@@ -37,7 +36,6 @@ div.container-text {
 }
 span.title {
   font-size: 60px;
-  color: #fff;
 }
 
 div.container-cardapio {
@@ -49,7 +47,7 @@ div.container-cardapio {
 }
 
 div.produtos-cardapio {
-  background-color: #fff;
+  background-color: #fb6b90;
   border: 0;
   width: 300px;
   border-radius: 5px;
@@ -73,7 +71,7 @@ div.produtos-desc small {
   background-color: #616161;
   padding: 4px;
   border-radius: 5px;
-  color: #fff;
+  color: #efebe0;
   font-weight: bold;
 }
 
@@ -86,14 +84,14 @@ div.btn-add-carrinho button {
   font-size: 20px !important;
   font-weight: bold;
   border: 0;
-  color: #fff;
+  color: #efebe0;
   border-radius: 5px;
   padding: 5px;
-  background-color: #f44336;
+  background-color: #b21368;
 }
 
 div.btn-add-carrinho button:hover {
-  background-color: #f09892;
+  background-color: #d67ba8;
   color: #000;
 }
 
@@ -102,4 +100,9 @@ div.container-btn-voltar {
   align-items: center;
   justify-content: center;
   margin-top: 50px;
+}
+
+button.btn-voltar {
+  background-color: #fb4570;
+  border: none;
 }

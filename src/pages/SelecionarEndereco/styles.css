@@ -1,5 +1,4 @@
 div.body-select-endereco {
-  background-color: black;
 }
 
 div.container-carrinho {
@@ -18,7 +17,7 @@ div.produtos div.descricao {
 div.produtos {
   border-bottom: solid 1px #eeeeee;
   padding-bottom: 20px;
-  background-color: #fff;
+  background-color: #fb6b90;
   border: 0;
   width: 300px !important;
   border-radius: 5px;
@@ -53,24 +52,11 @@ div.footer-desc {
   align-items: flex-end;
 }
 
-div.btn-remover-carrinho button {
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #f44336;
-  border: 0;
-}
-
-div.btn-remover-carrinho button:hover {
-  background-color: #f09892;
-  color: #000;
-}
-
 div.finalizar-total {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  background-color: #f44336;
+  background-color: #b21368;
   font-size: 30px;
   padding: 10px;
   width: 300px;
@@ -83,7 +69,7 @@ div.finalizar button {
   color: #fff;
   border-radius: 5px;
   padding: 5px;
-  background-color: #f44336;
+  background-color: #b21368;
 }
 
 div.finalizar button:hover {
@@ -106,7 +92,7 @@ div.container-text-cart {
 }
 span.title-selecione {
   font-size: 40px;
-  color: #fff;
+  color: #000;
 }
 
 div.container-title-endereco {
@@ -126,7 +112,7 @@ div.loader-select-end {
 }
 
 button.endereco {
-  background-color: #fff;
+  background-color: #fb6b90;
   text-align: start;
   padding: 5px 5px 5px 5px;
   border-radius: 5px;

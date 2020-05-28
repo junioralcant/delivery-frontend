@@ -23,7 +23,7 @@ function NavBar({ ...props }) {
 
   return (
     <>
-      <div className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="navbar navbar-expand-lg navbar-light ">
         <button
           className="navbar-toggler"
           type="button"
@@ -43,7 +43,7 @@ function NavBar({ ...props }) {
           onClick={() => {
             history.push("/carrinho");
           }}
-          className=" navbar-toggler btn btn-primary btn-cart my-2 my-sm-0"
+          className=" navbar-toggler btn  btn-carts my-2 my-sm-0"
           style={{ marginRight: 10 }}
         >
           <IoIosCart /> <span> {cartSize}</span>
@@ -98,7 +98,7 @@ function NavBar({ ...props }) {
           ) : (
             <>
               <button
-                className="btn btn btn-primary my-2 my-sm-0"
+                className="btn btn-primary my-2 my-sm-0"
                 style={{ marginRight: 10 }}
                 data-toggle="modal"
                 data-target="#myModal"
@@ -124,6 +124,6 @@ function NavBar({ ...props }) {
   );
 }
 
-export default connect(state => ({
-  cartSize: state.cart.length
+export default connect((state) => ({
+  cartSize: state.cart.length,
 }))(NavBar);

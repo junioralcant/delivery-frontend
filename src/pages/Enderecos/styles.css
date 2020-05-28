@@ -1,6 +1,4 @@
 div.body {
-  background-color: #000;
-  height: 140vh;
 }
 
 div.container-title-endereco {
@@ -26,7 +24,7 @@ div.container-endereco {
 }
 
 div.endereco {
-  background-color: #fff;
+  background-color: #fb6b90;
   display: flex;
   justify-content: space-between;
   padding: 5px 5px 5px 5px;
@@ -36,7 +34,7 @@ div.endereco {
 }
 
 div.remove-endereco button {
-  background-color: #f44336;
+  background-color: #b21368;
   border: none;
   border-radius: 5px;
   color: #fff;

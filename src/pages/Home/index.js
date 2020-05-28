@@ -12,7 +12,7 @@ export default function Home({ ...props }) {
       <header className="col-md-12 ">
         <div className="text-banner">
           <span className="banner">
-            PIZZARIA
+            Pastel
             <br />
             Delivery
           </span>

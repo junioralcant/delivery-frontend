@@ -1,6 +1,6 @@
 div.footer {
-  background-color: #343a40;
-  color: #fff;
+  background: #fb4570 !important;
+  color: #000 !important;
   padding: 15px;
 }
 
@@ -10,7 +10,7 @@ div.footer small.text-footer {
 
 div.footer a.name {
   text-decoration: none;
-  color: #fff;
+  color: #000;
   font-weight: 900;
   margin-left: 5px;
   font-size: 18px;
