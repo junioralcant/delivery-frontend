@@ -1,7 +1,7 @@
 div.navbar {
   font-weight: bold;
   font-size: 25px;
-  background: #fb4570 !important;
+  background: #fb7595 !important;
 }
 
 div.navbar button {
@@ -26,7 +26,7 @@ div.modal {
 }
 
 div.modal-header {
-  background-color: #fb4570;
+  background-color: #fb7595;
   color: #000;
 }
 
@@ -36,7 +36,7 @@ div.modal-header h4 {
 }
 
 div.modal-footer {
-  background-color: #fb4570;
+  background-color: #fb7595;
 }
 
 div.modal-footer button {

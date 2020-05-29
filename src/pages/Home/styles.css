@@ -17,7 +17,7 @@ span.banner {
 }
 
 a.button {
-  background-color: #fb4570;
+  background-color: #fb7595;
   color: #efebe0;
   padding: 20px 20px 20px 20px;
   height: 60px;
@@ -43,7 +43,7 @@ div.text-banner {
 }
 
 div.funcionamento {
-  /* background-image: linear-gradient(#fb4570, #fb8da0); */
+  /* background-image: linear-gradient(#fb7595, #fb8da0); */
   background: #efebe0;
   padding-bottom: 60px;
 }
@@ -59,7 +59,7 @@ span.hr-funcionamento {
 }
 
 div.container-dados-hr {
-  background-color: #fb4570;
+  background-color: #fb7595;
   color: #000;
   font-size: 50px;
   display: flex;

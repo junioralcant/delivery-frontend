@@ -13,7 +13,7 @@ div.container-carrinho {
 div.produtos-carrinho {
   border-bottom: solid 1px #eeeeee;
   padding-bottom: 20px;
-  background-color: #fb6b90;
+  background-color: #fb7595;
   border: 0;
   width: 300px;
   border-radius: 5px;
@@ -65,7 +65,7 @@ div.finalizar {
   margin-top: 20px;
   display: flex;
   justify-content: space-between;
-  background-color: #fb6b90;
+  background-color: #fb7595;
   font-size: 30px;
   padding: 10px;
   width: 300px;
@@ -94,7 +94,7 @@ input.input-number {
 
 div.container-text-cart {
   margin-top: 60px;
-  background-color: #fb6b90 !important;
+  background-color: #fb7595 !important;
   border-radius: 5px;
   width: 300px !important;
 }
