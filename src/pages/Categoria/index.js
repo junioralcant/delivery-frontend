@@ -11,15 +11,15 @@ import "./styles.css";
 
 export default function Categoria({ ...props }) {
   const [categorias, setCategorias] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadCategoria() {
       setLoading(true);
       const response = await api.get("/categorias");
 
-      setLoading(false);
       setCategorias(response.data.docs);
+      setLoading(false);
     }
 
     loadCategoria();
@@ -36,16 +36,17 @@ export default function Categoria({ ...props }) {
           >
             <span className="title">Categorias</span>
           </div>
-          {categorias.map(categoria => (
-            <div key={categoria._id} className="col-md-12 container-cat">
-              <div className="row">
-                {loading && <Loader />}
+
+          <div className="col-md-12 container-cat">
+            {loading && <Loader />}
+            {categorias.map((categoria) => (
+              <div className="row" key={categoria._id}>
                 <Link className="btn-cat" to={`/cardapio/${categoria.nome}`}>
                   {categoria.nome}
                 </Link>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>
