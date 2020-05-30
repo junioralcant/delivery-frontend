@@ -13,7 +13,7 @@ function SelecioneEndereco({ ...props }) {
   const [enderecos, setEnderecos] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const { cart, total, history } = props;
+  const { cart, total, history, change } = props;
 
   useEffect(() => {
     async function loadEndereco() {
@@ -30,9 +30,9 @@ function SelecioneEndereco({ ...props }) {
   async function handlerPedido(enderecoId) {
     await api.post("/pedidos", {
       enderecoId: enderecoId,
-      produtos: cart.map(produto => {
+      produtos: cart.map((produto) => {
         return { produtoId: produto._id, quantidade: produto.amount };
-      })
+      }),
     });
 
     alert("PEDIDO REALIZADO COM SUCESSO!");
@@ -48,7 +48,7 @@ function SelecioneEndereco({ ...props }) {
           className="container col-md-12 container-carrinho"
           style={{ paddingBottom: "50%" }}
         >
-          {cart.map(produto => {
+          {cart.map((produto) => {
             return (
               <div key={produto._id} className="produtos">
                 <div className="produtos-desc">
@@ -76,6 +76,11 @@ function SelecioneEndereco({ ...props }) {
               </div>
             );
           })}
+          <div className="finalizar-total">
+            <div>
+              <strong>Troco para:</strong> <strong>{change}</strong>
+            </div>
+          </div>
 
           <div className="finalizar-total">
             <div>
@@ -97,7 +102,7 @@ function SelecioneEndereco({ ...props }) {
 
             {enderecos.length > 0 ? (
               <div className="container container-endereco">
-                {enderecos.map(end => (
+                {enderecos.map((end) => (
                   <button
                     key={end._id}
                     onClick={() => {
@@ -157,17 +162,18 @@ function SelecioneEndereco({ ...props }) {
   );
 }
 
-const mapStateToProps = state => ({
-  cart: state.cart.map(product => ({
+const mapStateToProps = (state) => ({
+  cart: state.cart.map((product) => ({
     ...product,
-    subtotal: formatPrice(product.preco * product.amount)
+    subtotal: formatPrice(product.preco * product.amount),
   })),
   cartSize: state.cart.length,
   total: formatPrice(
     state.cart.reduce((total, product) => {
       return total + product.preco * product.amount;
     }, 0)
-  )
+  ),
+  change: formatPrice(state.change),
 });
 
 export default connect(mapStateToProps)(SelecioneEndereco);

@@ -1,8 +1,10 @@
 import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 import { connect } from "react-redux";
+import Select from "react-select";
 
 import * as CartActions from "../../store/modules/cart/actions";
+import * as ChangeActions from "../../store/modules/change/actions";
 
 import NavBar from "../../components/NavBar";
 import SignIn from "../../components/SignIn";
@@ -11,10 +13,12 @@ import { isAuthenticated } from "../../services/auth";
 
 import { formatPrice } from "../../util/formart";
 
+import changeValues from "../../services/changeValues";
+
 import "./styles.css";
 
 function Carrinho({ ...props }) {
-  const { cart, dispatch, total, cartSize } = props;
+  const { cart, dispatch, total, cartSize, change } = props;
 
   function increment(product) {
     dispatch(CartActions.updateAmount(product._id, product.amount + 1));
@@ -24,17 +28,23 @@ function Carrinho({ ...props }) {
     dispatch(CartActions.updateAmount(product._id, product.amount - 1));
   }
 
+  function addChang(changue) {
+    dispatch(ChangeActions.addChange(changue));
+  }
+
+  console.log(change);
+
   return (
     <>
       <div className="body-carrinho">
         <SignIn {...props} />
-
         <NavBar {...props} />
+
         <div
           className="container col-md-12 container-carrinho"
           style={{ paddingBottom: "50%" }}
         >
-          {cart.map(produto => {
+          {cart.map((produto) => {
             return (
               <div key={produto._id} className="produtos-carrinho">
                 <div className="produtos-desc">
@@ -75,29 +85,42 @@ function Carrinho({ ...props }) {
           })}
 
           {cartSize > 0 ? (
-            <div className="finalizar">
-              {isAuthenticated() ? (
-                <>
-                  <button
-                    onClick={() => props.history.push("/selecionarendereco")}
-                  >
-                    Finalizar Pedido
-                  </button>
-                  <div>
-                    <small>Total:</small> <strong>{total}</strong>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <button data-toggle="modal" data-target="#myModal">
-                    Faça login
-                  </button>
-                  <div>
-                    <small>Total:</small> <strong>{total}</strong>
-                  </div>
-                </>
-              )}
-            </div>
+            <>
+              <div className="troco">
+                <strong>Troco para ?</strong>
+                <Select
+                  className="select"
+                  options={changeValues}
+                  placeholder={change}
+                  onChange={(value) => {
+                    addChang(value.value);
+                  }}
+                />
+              </div>
+              <div className="finalizar">
+                {isAuthenticated() ? (
+                  <>
+                    <button
+                      onClick={() => props.history.push("/selecionarendereco")}
+                    >
+                      Finalizar Pedido
+                    </button>
+                    <div>
+                      <small>Total:</small> <strong>{total}</strong>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <button data-toggle="modal" data-target="#myModal">
+                      Faça login
+                    </button>
+                    <div>
+                      <small>Total:</small> <strong>{total}</strong>
+                    </div>
+                  </>
+                )}
+              </div>
+            </>
           ) : (
             <div
               className="col-md-12 container-text-cart"
@@ -112,17 +135,18 @@ function Carrinho({ ...props }) {
   );
 }
 
-const mapStateToProps = state => ({
-  cart: state.cart.map(product => ({
+const mapStateToProps = (state) => ({
+  cart: state.cart.map((product) => ({
     ...product,
-    subtotal: formatPrice(product.preco * product.amount)
+    subtotal: formatPrice(product.preco * product.amount),
   })),
   cartSize: state.cart.length,
   total: formatPrice(
     state.cart.reduce((total, product) => {
       return total + product.preco * product.amount;
     }, 0)
-  )
+  ),
+  change: state.change,
 });
 
 export default connect(mapStateToProps)(Carrinho);

@@ -17,7 +17,7 @@ div.produtos div.descricao {
 div.produtos {
   border-bottom: solid 1px #eeeeee;
   padding-bottom: 20px;
-  background-color: #fb6 b90;
+  background-color: #fb7595;
   border: 0;
   width: 300px !important;
   border-radius: 5px;
@@ -62,6 +62,10 @@ div.finalizar-total {
   width: 300px;
   border-radius: 5px;
   color: #fff;
+}
+
+div.finalizar-total strong {
+  margin-left: 5px;
 }
 
 div.finalizar button {

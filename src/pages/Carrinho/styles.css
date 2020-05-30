@@ -72,6 +72,41 @@ div.finalizar {
   border-radius: 5px;
 }
 
+div.troco {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fb7595;
+  font-size: 30px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.select {
+  font-weight: bold;
+  width: 30%;
+}
+
+div.troco {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fb7595;
+  font-size: 30px;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+div.troco input {
+  border: 0;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px;
+  width: 30%;
+}
+
 div.finalizar button {
   border: 0;
   color: #fff;
