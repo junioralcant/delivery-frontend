@@ -33,6 +33,7 @@ function SelecioneEndereco({ ...props }) {
       produtos: cart.map((produto) => {
         return { produtoId: produto._id, quantidade: produto.amount };
       }),
+      trocoPara: change[0],
     });
 
     alert("PEDIDO REALIZADO COM SUCESSO!");
@@ -78,7 +79,8 @@ function SelecioneEndereco({ ...props }) {
           })}
           <div className="finalizar-total">
             <div>
-              <strong>Troco para:</strong> <strong>{change}</strong>
+              <strong>Troco para:</strong>{" "}
+              <strong>{formatPrice(change)}</strong>
             </div>
           </div>
 
@@ -173,7 +175,7 @@ const mapStateToProps = (state) => ({
       return total + product.preco * product.amount;
     }, 0)
   ),
-  change: formatPrice(state.change),
+  change: state.change,
 });
 
 export default connect(mapStateToProps)(SelecioneEndereco);

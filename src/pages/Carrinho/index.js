@@ -32,8 +32,6 @@ function Carrinho({ ...props }) {
     dispatch(ChangeActions.addChange(changue));
   }
 
-  console.log(change);
-
   return (
     <>
       <div className="body-carrinho">
