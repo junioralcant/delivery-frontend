@@ -75,6 +75,12 @@ div.container-dados-hr {
   }
 }
 
+@media (max-width: 370px) {
+  div.container-dados-hr {
+    font-size: 30px;
+  }
+}
+
 div.footer {
   background-color: #343a40;
   color: #efebe0;
