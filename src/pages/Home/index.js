@@ -38,37 +38,37 @@ export default function Home({ ...props }) {
 
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Segunda</strong> <small>Das 18 às 23 horas</small>
+            <strong>Segunda</strong> <small>Das 18:30 às 22 horas</small>
           </div>
         </div>
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Terça</strong> <small>Das 18 às 23 horas</small>
+            <strong>Terça</strong> <small>Das 18:30 às 22 horas</small>
           </div>
         </div>
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Quarta</strong> <small>Das 18 às 23 horas</small>
+            <strong>Quarta</strong> <small>Das 18:30 às 22 horas</small>
           </div>
         </div>
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Quinta</strong> <small>Das 18 às 23 horas</small>
+            <strong>Quinta</strong> <small>Das 18:30 às 22 horas</small>
           </div>
         </div>
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Sexta</strong> <small>Das 18 às 23 horas</small>
+            <strong>Sexta</strong> <small>Das 18:30 às 22 horas</small>
           </div>
         </div>
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Sabado</strong> <small>Das 18 ás 23 horas</small>
+            <strong>Sabado</strong> <small>Das 18:30 ás 22 horas</small>
           </div>
         </div>
         <div className="col-md-12 container-hr">
           <div className="container container-dados-hr">
-            <strong>Domingo</strong> <small>Das 18 às 23 horas</small>
+            <strong>Domingo</strong> <small>Das 18:30 às 22 horas</small>
           </div>
         </div>
       </div>
