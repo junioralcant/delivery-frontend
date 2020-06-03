@@ -70,6 +70,7 @@ div.produtos-desc small {
   text-align: center;
   background-color: #616161;
   padding: 4px;
+  max-height: 40px;
   border-radius: 5px;
   color: #efebe0;
   font-weight: bold;
