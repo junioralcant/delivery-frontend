@@ -50,30 +50,28 @@ export default function Categoria({ ...props }) {
 
           <div className="col-md-12 container-cat">
             {loading && <Loader />}
-            {lojaDisponivel ? (
-              categorias.map(
-                (categoria) =>
-                  categoria.disponivel === true && (
-                    <div className="row" key={categoria._id}>
-                      <Link
-                        className="btn-cat"
-                        to={`/cardapio/${categoria.nome}`}
-                      >
-                        {categoria.nome}
-                      </Link>
-                    </div>
-                  )
-              )
-            ) : (
-              <div className="loja-fechada">
-                {!loading && (
-                  <>
-                    <h1>Ops, no momento não estamos funcionando</h1>
-                    <small>Voltaremos mais tarde</small>
-                  </>
+            {lojaDisponivel
+              ? categorias.map(
+                  (categoria) =>
+                    categoria.disponivel === true && (
+                      <div className="row" key={categoria._id}>
+                        <Link
+                          className="btn-cat"
+                          to={`/cardapio/${categoria.nome}`}
+                        >
+                          {categoria.nome}
+                        </Link>
+                      </div>
+                    )
+                )
+              : !loading && (
+                  <div className="loja-fechada">
+                    <>
+                      <h1>Ops, no momento não estamos funcionando</h1>
+                      <small>Voltaremos mais tarde</small>
+                    </>
+                  </div>
                 )}
-              </div>
-            )}
           </div>
         </div>
       </div>
