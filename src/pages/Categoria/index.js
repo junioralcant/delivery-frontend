@@ -36,8 +36,6 @@ export default function Categoria({ ...props }) {
     loadCategoria();
   }, []);
 
-  console.log(lojaDisponivel);
-
   return (
     <>
       <NavBar {...props} />
@@ -68,8 +66,12 @@ export default function Categoria({ ...props }) {
               )
             ) : (
               <div className="loja-fechada">
-                <h1>Ops, no momento não estamos funcionado</h1>
-                <small>Voltaremos mais tarde</small>
+                {!loading && (
+                  <>
+                    <h1>Ops, no momento não estamos funcionando</h1>
+                    <small>Voltaremos mais tarde</small>
+                  </>
+                )}
               </div>
             )}
           </div>
