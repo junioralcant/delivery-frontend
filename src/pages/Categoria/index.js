@@ -12,6 +12,17 @@ import "./styles.css";
 export default function Categoria({ ...props }) {
   const [categorias, setCategorias] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [lojaDisponivel, setLojaDisponivel] = useState();
+
+  useEffect(() => {
+    async function loadLojaDisponivel() {
+      const response = await api.get(`/lojadisponivel`);
+
+      setLojaDisponivel(response.data[0].disponivel);
+    }
+
+    loadLojaDisponivel();
+  }, []);
 
   useEffect(() => {
     async function loadCategoria() {
@@ -24,6 +35,8 @@ export default function Categoria({ ...props }) {
 
     loadCategoria();
   }, []);
+
+  console.log(lojaDisponivel);
 
   return (
     <>
@@ -39,18 +52,25 @@ export default function Categoria({ ...props }) {
 
           <div className="col-md-12 container-cat">
             {loading && <Loader />}
-            {categorias.map(
-              (categoria) =>
-                categoria.disponivel === true && (
-                  <div className="row" key={categoria._id}>
-                    <Link
-                      className="btn-cat"
-                      to={`/cardapio/${categoria.nome}`}
-                    >
-                      {categoria.nome}
-                    </Link>
-                  </div>
-                )
+            {lojaDisponivel ? (
+              categorias.map(
+                (categoria) =>
+                  categoria.disponivel === true && (
+                    <div className="row" key={categoria._id}>
+                      <Link
+                        className="btn-cat"
+                        to={`/cardapio/${categoria.nome}`}
+                      >
+                        {categoria.nome}
+                      </Link>
+                    </div>
+                  )
+              )
+            ) : (
+              <div className="loja-fechada">
+                <h1>Ops, no momento não estamos funcionado</h1>
+                <small>Voltaremos mais tarde</small>
+              </div>
             )}
           </div>
         </div>

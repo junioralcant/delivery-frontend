@@ -17,6 +17,28 @@ div.container-cat {
   margin-bottom: -40px;
 }
 
+div.loja-fechada {
+  background-color: #fb7595;
+  border: 0;
+  width: 300px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+}
+
+div.loja-fechada h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+
+div.loja-fechada small {
+  font-size: 25px;
+}
+
 a.btn-cat {
   background-color: #fb7595;
   border: 0;
