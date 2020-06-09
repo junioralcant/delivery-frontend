@@ -40,13 +40,13 @@ export default function Pedidos({ ...props }) {
           </div>
         )}
 
-        {pedidos.map(pedido => {
+        {pedidos.map((pedido) => {
           const data = parseFromTimeZone(pedido.createdAt, {
-            timeZone: "America/Sao_Paulo"
+            timeZone: "America/Sao_Paulo",
           });
 
           const dataFormatada = formatToTimeZone(data, "DD/MM/YYYY", {
-            timeZone: "Europe/Berlin"
+            timeZone: "Europe/Berlin",
           });
           return (
             <div
@@ -56,14 +56,16 @@ export default function Pedidos({ ...props }) {
               <div className="data-pedido col-md-12">
                 <strong>{dataFormatada}</strong>
               </div>
-              {pedido.produto.map(p => (
+              {pedido.produto.map((p) => (
                 <div key={p._id} className="pedido">
                   <div className="produtos-desc">
-                    <strong>{p.produtoId.nome}</strong>{" "}
-                    <small>{formatPrice(p.produtoId.preco)}</small>
+                    <strong>{p.produtoId ? p.produtoId.nome : null}</strong>{" "}
+                    <small>
+                      {formatPrice(p.produtoId ? p.produtoId.preco : null)}
+                    </small>
                   </div>
                   <div className="descricao">
-                    <small>{p.produtoId.descricao}</small>
+                    <small>{p.produtoId ? p.produtoId.descricao : null}</small>
                   </div>
                   <div className="footer-desc">
                     <div>
